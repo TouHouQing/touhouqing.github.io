@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Emotion State Machine</title>
+  <desc id="desc">An emotional state machine diagram for AI agents showing event appraisal, valence and arousal updates, decay and response shaping.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1f2937"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+    <style>
+      .title { font: 700 48px 'SF Pro Display', 'Segoe UI', Arial, sans-serif; fill: #f8fbff; }
+      .sub { font: 400 22px 'SF Pro Text', 'Segoe UI', Arial, sans-serif; fill: #d5dde7; }
+      .nodeTitle { font: 700 26px 'SF Pro Display', 'Segoe UI', Arial, sans-serif; fill: #fff; }
+      .body { font: 400 18px 'SF Pro Text', 'Segoe UI', Arial, sans-serif; fill: #eef5fb; }
+      .axis { font: 600 18px 'SF Pro Text', 'Segoe UI', Arial, sans-serif; fill: #dbe7f3; }
+    </style>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg)"/>
+  <text x="90" y="90" class="title">Emotion as a Computable State Machine</text>
+  <text x="90" y="130" class="sub">Events do not directly become words. They first become state, then style, then behavior.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="230" width="250" height="120" rx="24" fill="#3a86ff"/>
+    <text x="155" y="285" class="nodeTitle">EVENT INPUT</text>
+    <text x="155" y="320" class="body">user tone</text>
+    <text x="155" y="345" class="body">system success / failure</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="450" y="230" width="280" height="120" rx="24" fill="#8338ec"/>
+    <text x="485" y="285" class="nodeTitle">APPRAISAL</text>
+    <text x="485" y="320" class="body">goal alignment</text>
+    <text x="485" y="345" class="body">personality sensitivity</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="810" y="180" width="430" height="240" rx="28" fill="#ef476f"/>
+    <text x="845" y="245" class="nodeTitle">EMOTION VECTOR</text>
+    <text x="845" y="285" class="body">Valence: negative  ←→  positive</text>
+    <text x="845" y="320" class="body">Arousal: calm  ←→  activated</text>
+    <line x1="1015" y1="350" x2="1015" y2="400" stroke="#ffd7de" stroke-width="4"/>
+    <line x1="925" y1="375" x2="1105" y2="375" stroke="#ffd7de" stroke-width="4"/>
+    <text x="1125" y="380" class="axis">Valence</text>
+    <text x="1022" y="338" class="axis">Arousal</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="450" y="520" width="280" height="120" rx="24" fill="#06d6a0"/>
+    <text x="485" y="575" class="nodeTitle">DECAY + CACHE</text>
+    <text x="485" y="610" class="body">timestamp decay</text>
+    <text x="485" y="635" class="body">Redis atomic update</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="810" y="520" width="430" height="160" rx="28" fill="#ff9f1c"/>
+    <text x="845" y="580" class="nodeTitle">RESPONSE SHAPING</text>
+    <text x="845" y="615" class="body">Prompt constraints: direct / calm / warm / sharp</text>
+    <text x="845" y="645" class="body">Model params: temperature / repetition penalty</text>
+  </g>
+
+  <path d="M370 290 L450 290" stroke="#d6e2ee" stroke-width="6" stroke-linecap="round"/>
+  <path d="M730 290 L810 290" stroke="#d6e2ee" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1015 420 L1015 520" stroke="#d6e2ee" stroke-width="6" stroke-linecap="round"/>
+  <path d="M810 605 L730 605" stroke="#d6e2ee" stroke-width="6" stroke-linecap="round"/>
+  <path d="M450 605 L330 605 C220 605, 180 520, 180 390 L180 350" stroke="#d6e2ee" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
