@@ -2,11 +2,11 @@
   const DATA_URL = "/data/github-contributions.json";
   const SECTION_ID = "about-contrib";
   const palette = [
-    { top: "#172433", side: "#111b28", front: "#0e1723" },
-    { top: "#0f5d3f", side: "#0c452f", front: "#0b3826" },
-    { top: "#177f52", side: "#116141", front: "#0e4b33" },
-    { top: "#23a466", side: "#1a804f", front: "#16633f" },
-    { top: "#7ce38b", side: "#52b96b", front: "#369355" }
+    { top: "#ebedf0", side: "#ebedf0", front: "#ebedf0" },
+    { top: "#9be9a8", side: "#9be9a8", front: "#9be9a8" },
+    { top: "#40c463", side: "#40c463", front: "#40c463" },
+    { top: "#30a14e", side: "#30a14e", front: "#30a14e" },
+    { top: "#216e39", side: "#216e39", front: "#216e39" }
   ];
 
   const numberFormatter = new Intl.NumberFormat("en-US");
@@ -20,49 +20,36 @@
     dateStyle: "medium",
     timeStyle: "short"
   });
+  const layoutFrames = new WeakMap();
+  const resizeObservers = new WeakMap();
 
-  const pluralize = (value, unit) => `${value} ${unit}${value === 1 ? "" : "s"}`;
+  const balanceMonthLabels = (monthsContainer) => {
+    if (!monthsContainer) return;
 
-  const renderStats = (statsContainer, summary) => {
-    const items = [
-      {
-        label: "Last Year",
-        value: numberFormatter.format(summary.totalContributions),
-        helper: "官方总贡献数"
-      },
-      {
-        label: "Active Days",
-        value: numberFormatter.format(summary.activeDays),
-        helper: "有提交记录的天数"
-      },
-      {
-        label: "Current Streak",
-        value: pluralize(summary.currentStreak, "day"),
-        helper: "连续活跃中"
-      },
-      {
-        label: "Longest Streak",
-        value: pluralize(summary.longestStreak, "day"),
-        helper: "最长连续活跃"
-      },
-      {
-        label: "Peak Day",
-        value: numberFormatter.format(summary.maxDaily),
-        helper: "单日最高贡献"
+    const labels = Array.from(monthsContainer.querySelectorAll(".about-contrib__month"));
+    let lastVisible = null;
+
+    labels.forEach((label) => {
+      label.classList.remove("is-hidden");
+      label.removeAttribute("aria-hidden");
+    });
+
+    labels.forEach((label) => {
+      const rect = label.getBoundingClientRect();
+      if (!rect.width) return;
+
+      if (!lastVisible) {
+        lastVisible = { label, rect };
+        return;
       }
-    ];
 
-    statsContainer.innerHTML = items
-      .map(
-        (item) => `
-          <article class="about-contrib__stat">
-            <span>${item.label}</span>
-            <strong>${item.value}</strong>
-            <em>${item.helper}</em>
-          </article>
-        `
-      )
-      .join("");
+      if (rect.left < lastVisible.rect.right + 6) {
+        lastVisible.label.classList.add("is-hidden");
+        lastVisible.label.setAttribute("aria-hidden", "true");
+      }
+
+      lastVisible = { label, rect };
+    });
   };
 
   const renderMonths = (monthsContainer, months, weeks) => {
@@ -70,7 +57,11 @@
     monthsContainer.innerHTML = months
       .map(
         (month) => `
-          <span class="about-contrib__month" style="grid-column:${month.weekIndex + 1}">
+          <span
+            class="about-contrib__month"
+            data-week-index="${month.weekIndex}"
+            style="grid-column:${month.weekIndex + 1}"
+          >
             ${month.label}
           </span>
         `
@@ -126,24 +117,12 @@
 
   const renderEmptyState = (section, message) => {
     const summary = section.querySelector('[data-role="summary"]');
-    const stats = section.querySelector('[data-role="stats"]');
     const months = section.querySelector('[data-role="months"]');
     const heatmap = section.querySelector('[data-role="heatmap"]');
-    const caption = section.querySelector('[data-role="caption"]');
 
     if (summary) summary.textContent = message;
-    if (stats) {
-      stats.innerHTML = `
-        <article class="about-contrib__stat is-empty">
-          <span>Sync Status</span>
-          <strong>Unavailable</strong>
-          <em>稍后将自动重试同步</em>
-        </article>
-      `;
-    }
     if (months) months.innerHTML = "";
     if (heatmap) heatmap.innerHTML = "";
-    if (caption) caption.textContent = "GitHub 官方 contributions 数据暂时不可用。";
   };
 
   const fetchData = async () => {
@@ -159,17 +138,80 @@
     return response.json();
   };
 
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const updateBoardScale = (section) => {
+    if (!section) return;
+
+    const weeks = Number(section.dataset.weeks || 0);
+    const boardShell = section.querySelector(".about-contrib__board-shell");
+    const monthsContainer = section.querySelector('[data-role="months"]');
+
+    if (!weeks || !boardShell || !monthsContainer) return;
+
+    const mobile = window.matchMedia("(max-width: 640px)").matches;
+    const compact = window.matchMedia("(max-width: 900px)").matches;
+    const labelTrack = mobile ? 36 : 44;
+    const shellGap = mobile ? 8.8 : 12;
+    const cellMin = mobile ? 8.8 : 11;
+    const cellMax = mobile ? 10.6 : 13.2;
+    const gapMin = 3;
+    const gapPreferred = mobile ? 3 : 4;
+    const padRight = compact ? 2 : 4;
+    const available = boardShell.clientWidth - labelTrack - shellGap;
+
+    if (available <= 0) return;
+
+    let gap = gapPreferred;
+    let cellSize = (available - padRight - (weeks - 1) * gap) / weeks;
+
+    if (cellSize < cellMin && gap > gapMin) {
+      gap = gapMin;
+      cellSize = (available - padRight - (weeks - 1) * gap) / weeks;
+    }
+
+    cellSize = clamp(cellSize, cellMin, cellMax);
+
+    section.style.setProperty("--contrib-label-track", `${labelTrack}px`);
+    section.style.setProperty("--contrib-gap", `${gap.toFixed(2)}px`);
+    section.style.setProperty("--contrib-cell-size", `${cellSize.toFixed(2)}px`);
+    section.style.setProperty("--contrib-month-font-size", mobile ? "0.72rem" : "0.78rem");
+
+    balanceMonthLabels(monthsContainer);
+  };
+
+  const queueBoardScale = (section) => {
+    if (!section) return;
+    const currentFrame = layoutFrames.get(section);
+    if (currentFrame) cancelAnimationFrame(currentFrame);
+
+    const nextFrame = requestAnimationFrame(() => {
+      updateBoardScale(section);
+    });
+
+    layoutFrames.set(section, nextFrame);
+  };
+
+  const ensureBoardObserver = (section) => {
+    if (!section || resizeObservers.has(section) || typeof ResizeObserver === "undefined") return;
+
+    const boardShell = section.querySelector(".about-contrib__board-shell");
+    if (!boardShell) return;
+
+    const observer = new ResizeObserver(() => queueBoardScale(section));
+    observer.observe(boardShell);
+    resizeObservers.set(section, observer);
+  };
+
   const mountSection = async (section) => {
     if (!section || section.dataset.loading === "1") return;
 
     const title = section.querySelector('[data-role="title"]');
     const summary = section.querySelector('[data-role="summary"]');
     const link = section.querySelector('[data-role="link"]');
-    const stats = section.querySelector('[data-role="stats"]');
     const months = section.querySelector('[data-role="months"]');
     const heatmap = section.querySelector('[data-role="heatmap"]');
     const legend = section.querySelector('[data-role="legend"]');
-    const caption = section.querySelector('[data-role="caption"]');
 
     section.dataset.loading = "1";
 
@@ -180,7 +222,7 @@
         return;
       }
 
-      if (title) title.textContent = "GitHub Profile 3D Contrib";
+      if (title) title.textContent = "GitHub Contributions";
       if (summary) {
         summary.innerHTML = `
           过去一年累计 <strong>${numberFormatter.format(data.summary.totalContributions)}</strong> 次贡献，
@@ -192,12 +234,15 @@
         link.href = data.profileUrl;
         link.textContent = `@${data.username}`;
       }
-      if (stats) renderStats(stats, data.summary);
+      section.dataset.weeks = String(data.weeks);
       if (months) renderMonths(months, data.months, data.weeks);
       if (heatmap) renderHeatmap(heatmap, data.days, data.weeks);
       if (legend) renderLegend(legend);
-      if (caption) {
-        caption.textContent = `GitHub 官方 contributions 图谱，按日同步，时间范围 ${data.range.from} 至 ${data.range.to}。`;
+      ensureBoardObserver(section);
+      queueBoardScale(section);
+
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(() => queueBoardScale(section)).catch(() => {});
       }
     } catch (error) {
       renderEmptyState(section, "GitHub contributions 数据加载失败，稍后刷新页面再试。");

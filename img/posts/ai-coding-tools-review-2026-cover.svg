@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI 编程工具评测封面</title>
+  <desc id="desc">用于博客文章“过去一年，我用过的 10 款 AI 编程产品”的封面图，采用双栏信息海报布局，左侧标题与结论，右侧三组工具分类卡片。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0a1424"/>
+      <stop offset="55%" stop-color="#11263e"/>
+      <stop offset="100%" stop-color="#16395c"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#11283f"/>
+      <stop offset="100%" stop-color="#0d2134"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffd66b"/>
+      <stop offset="100%" stop-color="#ffb838"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" x2="1">
+      <stop offset="0%" stop-color="#8addb8"/>
+      <stop offset="100%" stop-color="#57c79a"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ff9f84"/>
+      <stop offset="100%" stop-color="#ff735f"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#04101c" flood-opacity="0.32"/>
+    </filter>
+    <style>
+      .eyebrow { font: 700 18px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #f1c75b; letter-spacing: 3px; }
+      .title { font: 700 66px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #f8fbff; }
+      .subtitle { font: 500 24px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #d8e4ef; }
+      .blockTitle { font: 700 28px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #f8fbff; }
+      .blockBody { font: 500 18px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #c7d7e7; }
+      .sectionNo { font: 700 42px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #08121e; }
+      .sectionTitle { font: 700 28px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #f8fbff; }
+      .sectionDesc { font: 500 16px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #c9d8e7; }
+      .chipTextDark { font: 700 18px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #08121e; }
+      .chipTextLight { font: 700 18px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #f8fbff; }
+      .footer { font: 600 15px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #b9cadb; letter-spacing: 1.2px; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1390" cy="140" r="250" fill="#2d6b9d" opacity="0.12"/>
+  <circle cx="148" cy="760" r="300" fill="#87d7bb" opacity="0.08"/>
+  <circle cx="1280" cy="790" r="230" fill="#f0b34a" opacity="0.07"/>
+  <rect x="0" y="0" width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="88" y="86" class="eyebrow">AI CODING TOOLS REVIEW</text>
+
+  <text x="88" y="176" class="title">过去一年，</text>
+  <text x="88" y="252" class="title">我用过的</text>
+  <text x="88" y="328" class="title">10 款 AI</text>
+  <text x="88" y="404" class="title">编程产品</text>
+
+  <text x="92" y="474" class="subtitle">2025.03 → 2026.03</text>
+  <text x="92" y="512" class="subtitle">真实体验 ｜ 主观评价 ｜ 选型参考</text>
+
+  <g filter="url(#shadow)">
+    <rect x="88" y="580" width="430" height="188" rx="28" fill="url(#panel)"/>
+    <text x="126" y="642" class="blockTitle">我的结论</text>
+    <text x="126" y="692" class="blockBody">综合能力：Cursor</text>
+    <text x="126" y="730" class="blockBody">项目理解：Augment</text>
+    <text x="126" y="768" class="blockBody">性价比：Codex</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="88" width="922" height="212" rx="32" fill="url(#panel)"/>
+    <rect x="626" y="124" width="96" height="96" rx="28" fill="url(#gold)"/>
+    <text x="674" y="188" text-anchor="middle" class="sectionNo">01</text>
+    <text x="756" y="170" class="sectionTitle">顶尖梯队</text>
+    <text x="756" y="204" class="sectionDesc">专业级 AI 编程助手</text>
+    <text x="756" y="228" class="sectionDesc">适合高强度真实开发</text>
+
+    <rect x="756" y="246" width="140" height="40" rx="20" fill="url(#gold)"/>
+    <text x="826" y="272" text-anchor="middle" class="chipTextDark">Cursor</text>
+
+    <rect x="912" y="246" width="156" height="40" rx="20" fill="url(#gold)"/>
+    <text x="990" y="272" text-anchor="middle" class="chipTextDark">Augment</text>
+
+    <rect x="1084" y="246" width="188" height="40" rx="20" fill="url(#gold)"/>
+    <text x="1178" y="272" text-anchor="middle" class="chipTextDark">Claude Code</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="332" width="922" height="202" rx="32" fill="url(#panel)"/>
+    <rect x="626" y="368" width="96" height="96" rx="28" fill="url(#mint)"/>
+    <text x="674" y="432" text-anchor="middle" class="sectionNo">02</text>
+    <text x="756" y="414" class="sectionTitle">新手友好型</text>
+    <text x="756" y="448" class="sectionDesc">门槛更低</text>
+    <text x="756" y="472" class="sectionDesc">适合刚建立 AI 编程工作流的用户</text>
+
+    <rect x="756" y="486" width="120" height="38" rx="19" fill="url(#mint)"/>
+    <text x="816" y="511" text-anchor="middle" class="chipTextDark">Trae</text>
+
+    <rect x="894" y="486" width="120" height="38" rx="19" fill="url(#mint)"/>
+    <text x="954" y="511" text-anchor="middle" class="chipTextDark">Kiro</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="590" y="566" width="922" height="246" rx="32" fill="url(#panel)"/>
+    <rect x="626" y="602" width="96" height="96" rx="28" fill="url(#coral)"/>
+    <text x="674" y="666" text-anchor="middle" class="sectionNo">03</text>
+    <text x="756" y="648" class="sectionTitle">特色工具</text>
+    <text x="756" y="682" class="sectionDesc">各有明确定位，不一定全能</text>
+    <text x="756" y="706" class="sectionDesc">但适合特定场景</text>
+
+    <rect x="756" y="734" width="118" height="38" rx="19" fill="#163555"/>
+    <text x="815" y="759" text-anchor="middle" class="chipTextLight">Warp</text>
+
+    <rect x="890" y="734" width="132" height="38" rx="19" fill="#163555"/>
+    <text x="956" y="759" text-anchor="middle" class="chipTextLight">Codex</text>
+
+    <rect x="1038" y="734" width="164" height="38" rx="19" fill="#163555"/>
+    <text x="1120" y="759" text-anchor="middle" class="chipTextLight">OpenCode</text>
+
+    <rect x="1218" y="734" width="168" height="38" rx="19" fill="#163555"/>
+    <text x="1302" y="759" text-anchor="middle" class="chipTextLight">Antigravity</text>
+
+    <rect x="1402" y="734" width="92" height="38" rx="19" fill="#163555"/>
+    <text x="1448" y="759" text-anchor="middle" class="chipTextLight">Windsurf</text>
+  </g>
+
+  <text x="1506" y="860" text-anchor="end" class="footer">TOHOQING BLOG · PERSONAL REVIEW</text>
+</svg>
