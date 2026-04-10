@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">VibeSkills 文章封面</title>
+  <desc id="desc">深色科技风封面，展示 VibeSkills 从技能仓库到 AI 操作系统的核心价值与工作流。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060f1f"/>
+      <stop offset="48%" stop-color="#102944"/>
+      <stop offset="100%" stop-color="#1b4f7c"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#173a5d" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#10253e" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="accentA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7ee0ff"/>
+      <stop offset="100%" stop-color="#5cc4ff"/>
+    </linearGradient>
+    <linearGradient id="accentB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a2f5c8"/>
+      <stop offset="100%" stop-color="#62d4a2"/>
+    </linearGradient>
+    <linearGradient id="accentC" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffd47f"/>
+      <stop offset="100%" stop-color="#ffb956"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#030811" flood-opacity="0.42"/>
+    </filter>
+    <style>
+      .eyebrow { font: 700 22px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #8cd4ff; letter-spacing: 3.5px; }
+      .title { font: 700 68px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #f3f9ff; }
+      .subtitle { font: 500 28px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #d6e6f5; }
+      .cardTitle { font: 700 30px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #f6fbff; }
+      .cardBody { font: 500 20px 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; fill: #cfe0f1; }
+      .chipDark { font: 700 18px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #062132; }
+      .chipLight { font: 700 18px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #f6fbff; }
+      .footer { font: 600 16px 'Avenir Next', 'PingFang SC', 'Noto Sans SC', sans-serif; fill: #adc4db; letter-spacing: 1.2px; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1320" cy="150" r="250" fill="#66b8ff" opacity="0.13"/>
+  <circle cx="190" cy="780" r="280" fill="#7de3c0" opacity="0.09"/>
+  <circle cx="1435" cy="770" r="210" fill="#ffd27c" opacity="0.07"/>
+
+  <text x="92" y="88" class="eyebrow">AI WORKFLOW GOVERNANCE</text>
+
+  <text x="92" y="184" class="title">VibeSkills：</text>
+  <text x="92" y="266" class="title">从“技能仓库”到</text>
+  <text x="92" y="348" class="title">“AI 操作系统”</text>
+
+  <text x="96" y="418" class="subtitle">可路由 · 可治理 · 可验证 · 可复用</text>
+  <text x="96" y="456" class="subtitle">340+ Skills | Canonical Router | M/L/XL</text>
+
+  <g filter="url(#shadow)">
+    <rect x="92" y="534" width="598" height="262" rx="32" fill="url(#glass)"/>
+    <text x="136" y="598" class="cardTitle">它解决的不是“工具不够多”</text>
+    <text x="136" y="642" class="cardBody">而是 AI 协作里的调用混乱、过程失控、</text>
+    <text x="136" y="676" class="cardBody">结果难复核、长任务难交接。</text>
+
+    <rect x="136" y="714" width="188" height="44" rx="22" fill="url(#accentA)"/>
+    <text x="230" y="743" text-anchor="middle" class="chipDark">Clarify</text>
+
+    <rect x="340" y="714" width="152" height="44" rx="22" fill="url(#accentB)"/>
+    <text x="416" y="743" text-anchor="middle" class="chipDark">Plan</text>
+
+    <rect x="508" y="714" width="162" height="44" rx="22" fill="url(#accentC)"/>
+    <text x="589" y="743" text-anchor="middle" class="chipDark">Verify</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="760" y="108" width="752" height="688" rx="36" fill="#0f2237" opacity="0.94"/>
+
+    <rect x="812" y="164" width="648" height="158" rx="24" fill="#163453"/>
+    <text x="850" y="222" class="cardTitle">核心机制</text>
+    <text x="850" y="262" class="cardBody">Canonical Router 决定“该调用谁”</text>
+    <text x="850" y="294" class="cardBody">治理契约决定“做到什么才算完成”</text>
+
+    <rect x="812" y="352" width="648" height="158" rx="24" fill="#173b57"/>
+    <text x="850" y="410" class="cardTitle">执行分级</text>
+    <text x="850" y="450" class="cardBody">M：快速小任务</text>
+    <text x="1090" y="450" class="cardBody">L：计划串行</text>
+    <text x="1290" y="450" class="cardBody">XL：并行推进</text>
+
+    <rect x="812" y="540" width="648" height="158" rx="24" fill="#19415d"/>
+    <text x="850" y="598" class="cardTitle">适合人群</text>
+    <text x="850" y="638" class="cardBody">重度 AI 开发者、团队协作与长链路交付场景</text>
+    <text x="850" y="670" class="cardBody">想要稳定产出，而不是一次性“运气好”结果</text>
+
+    <rect x="1300" y="724" width="160" height="44" rx="22" fill="#173957"/>
+    <text x="1380" y="752" text-anchor="middle" class="chipLight">Hexo Blog</text>
+  </g>
+
+  <text x="1506" y="860" text-anchor="end" class="footer">TOHOUQING · VIBESKILLS DEEP DIVE</text>
+</svg>
