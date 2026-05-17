@@ -224,9 +224,14 @@
 
       if (title) title.textContent = "GitHub Contributions";
       if (summary) {
+        const streakPart =
+          Number(data.summary.currentStreak) > 0
+            ? `当前连续 <strong>${data.summary.currentStreak}</strong> 天活跃，`
+            : "";
+
         summary.innerHTML = `
           过去一年累计 <strong>${numberFormatter.format(data.summary.totalContributions)}</strong> 次贡献，
-          当前连续 <strong>${data.summary.currentStreak}</strong> 天活跃，
+          ${streakPart}
           最近同步于 ${syncFormatter.format(new Date(data.generatedAt))}。
         `;
       }
