@@ -1,0 +1,545 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人 | TouHouQing's Blog</title><meta name="author" content="TouHouQing"><meta name="copyright" content="TouHouQing"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最近看到一个叫 UZI-Skill 的项目，第一眼就挺上头。它不是那种只会说空话的 AI，而是真的把股票研究这件事做成了一套能跑、能看、能分享的工作流。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人">
+<meta property="og:url" content="https://tohoqing.com/2026/05/27/uzi-skill-ai-stock-research-assistant/index.html">
+<meta property="og:site_name" content="TouHouQing&#39;s Blog">
+<meta property="og:description" content="最近看到一个叫 UZI-Skill 的项目，第一眼就挺上头。它不是那种只会说空话的 AI，而是真的把股票研究这件事做成了一套能跑、能看、能分享的工作流。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tohoqing.com/img/posts/uzi-cover-2026.png">
+<meta property="article:published_time" content="2026-05-27T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-27T03:07:58.731Z">
+<meta property="article:author" content="TouHouQing">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="Agent">
+<meta property="article:tag" content="UZI-Skill">
+<meta property="article:tag" content="Workflow">
+<meta property="article:tag" content="投资研究">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tohoqing.com/img/posts/uzi-cover-2026.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人",
+  "url": "https://tohoqing.com/2026/05/27/uzi-skill-ai-stock-research-assistant/",
+  "image": "https://tohoqing.com/img/posts/uzi-cover-2026.png",
+  "datePublished": "2026-05-27T04:00:00.000Z",
+  "dateModified": "2026-05-27T03:07:58.731Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "TouHouQing",
+      "url": "https://github.com/TouHouQing"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/logo.jpg"><link rel="canonical" href="https://tohoqing.com/2026/05/27/uzi-skill-ai-stock-research-assistant/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"XEG344OL5Q","apiKey":"204d7563d56e6acdf694e84b5fcddb4f","indexName":"blog","hitsPerPage":6,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，耗时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":15,"languages":{"author":"作者: TouHouQing","link":"链接: ","source":"来源: TouHouQing's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/about-contrib.css?v=20260323-4"><meta name="generator" content="Hexo 8.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (true) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div class="bg-animation" id="web_bg" style="background-image: url(/img/background.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/wiki/"><i class="fa-fw fas fa-book-open"></i><span> Wiki</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/posts/uzi-cover-2026.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.jpg" alt="Logo"><span class="site-name">TouHouQing's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/wiki/"><i class="fa-fw fas fa-book-open"></i><span> Wiki</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-05-27T04:00:00.000Z" title="发表于 2026-05-27 12:00:00">2026-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-05-27T03:07:58.731Z" title="更新于 2026-05-27 11:07:58">2026-05-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2026/05/27/uzi-skill-ai-stock-research-assistant/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>如果你平时就在玩 <code>Codex</code>、<code>Claude Code</code> 这类 Agent，我建议你一定去看一眼 <code>UZI-Skill</code>。</p>
+<p>因为这玩意不是“AI 帮你看看股票”这么简单。</p>
+<p>它上来就是一整套狠活：</p>
+<ul>
+<li><code>22</code> 维分析</li>
+<li><code>17</code> 种机构方法</li>
+<li><code>51</code> 位不同风格的“投资大佬评审团”</li>
+<li>最后还给你一份真的像回事的结果页和分享卡</li>
+</ul>
+<p>我第一眼看到的时候，脑子里其实就一句话：</p>
+<p><strong>这不就是把“看票”这件事，硬生生做成了一个能跑的 skill 吗？</strong></p>
+<p>而且它最容易让人上头的地方，不是标题，而是你点进去之后发现它真有成品。</p>
+<p>不是那种“概念讲得天花乱坠，结果只会吐几段空话”的项目。</p>
+<p>而是那种你看完截图、看完命令、看完报告之后，会很容易冒出一个念头：</p>
+<p><strong>我也想装起来跑一遍。</strong></p>
+<h2 id="最先把我炸到的，就是它最后给你的效果"><a href="#最先把我炸到的，就是它最后给你的效果" class="headerlink" title="最先把我炸到的，就是它最后给你的效果"></a>最先把我炸到的，就是它最后给你的效果</h2><p>因为它不是那种你问一句，它回你一段话，就完了。</p>
+<p>它最后给你的东西，是一整套结果页。</p>
+<p>先看这个综合页：</p>
+<p><img src="/img/posts/uzi-hero-score.png" alt="UZI-Skill 综合评分示意"></p>
+<p>你看这种画面就知道，它明显不是在做“聊天陪伴型 AI”。</p>
+<p>它做的是另外一件事：</p>
+<p><strong>把一只股票分析完之后，给你整理成一份像模像样的结果。</strong></p>
+<p>里面有：</p>
+<ul>
+<li>标的</li>
+<li>分数</li>
+<li>倾向判断</li>
+<li>风险提示</li>
+<li>后续还能往下翻的分析内容</li>
+</ul>
+<p>这个体验其实挺关键的。</p>
+<p>因为很多 AI 工具的问题不是“不聪明”，而是输出太散。</p>
+<p>你问它一堆问题，最后得到一坨聊天记录，根本不想回看，更别说发给别人。</p>
+<p><code>UZI-Skill</code> 至少在这件事上，是认真做了“成品感”的。</p>
+<h2 id="第二个让我上头的点，是它那个评审团机制"><a href="#第二个让我上头的点，是它那个评审团机制" class="headerlink" title="第二个让我上头的点，是它那个评审团机制"></a>第二个让我上头的点，是它那个评审团机制</h2><p>这项目最容易传播起来的地方，肯定就是这个。</p>
+<p>它把“多视角分析”这件事，做成了一个很直观的东西。</p>
+<p>比如这张：</p>
+<p><img src="/img/posts/uzi-jury-seats.png" alt="UZI-Skill 评审席示意"></p>
+<p>说白了，这个设计就很适合种草。</p>
+<p>因为普通人一看到就懂了：</p>
+<ul>
+<li>哦，这不是单一结论</li>
+<li>哦，这是很多不同风格的人在一起看</li>
+<li>哦，原来它是把“观点分歧”也做出来了</li>
+</ul>
+<p>这玩意的传播力，比“我们用了 22 个维度分析、17 种机构方法”这种话术强太多了。</p>
+<p>不是因为后者不重要，而是因为前者更容易让人一下子明白：</p>
+<p><strong>这个工具做出来的东西，确实跟普通 AI 回答不太一样。</strong></p>
+<h2 id="它不是只有花活，往下翻也真有内容"><a href="#它不是只有花活，往下翻也真有内容" class="headerlink" title="它不是只有花活，往下翻也真有内容"></a>它不是只有花活，往下翻也真有内容</h2><p>如果它只有一个总分，或者只有一个“建议关注”，那我大概率不会专门写一篇来安利。</p>
+<p>但它不是。</p>
+<p>它后面还会继续展开很多深度卡片。</p>
+<p><img src="/img/posts/uzi-deep-scan.png" alt="UZI-Skill 深度卡片示意"></p>
+<p>这个我觉得很重要。</p>
+<p>因为很多人对这类工具天然有一个担心：</p>
+<p>“你不会最后就给我一个结论，然后让我自己脑补过程吧？”</p>
+<p><code>UZI-Skill</code> 至少从公开产物看，不是这个路子。</p>
+<p>它更像是在说：</p>
+<ul>
+<li>我不只给你结论</li>
+<li>我还给你拆开的分析层</li>
+<li>你可以继续顺着往下看</li>
+</ul>
+<p>这就让它更像一个“研究工作台”，而不是一个“只会下判断的聊天框”。</p>
+<h2 id="那它到底能拿来干嘛"><a href="#那它到底能拿来干嘛" class="headerlink" title="那它到底能拿来干嘛"></a>那它到底能拿来干嘛</h2><p>如果你把它当成一个平时能拿来用的 skill，我觉得主要有 4 个用法。</p>
+<h3 id="1-拿它跑完整个股分析"><a href="#1-拿它跑完整个股分析" class="headerlink" title="1. 拿它跑完整个股分析"></a>1. 拿它跑完整个股分析</h3><p>这肯定是主玩法。</p>
+<p>README 里最核心的命令就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/stock-deep-analyzer:analyze-stock 贵州茅台</span><br></pre></td></tr></table></figure>
+
+<p>这条命令的意思很简单：</p>
+<p>你给它一只票，它帮你把一整套分析流程先跑一遍。</p>
+<p>如果你平时自己看票的习惯是：</p>
+<ul>
+<li>看点基础面</li>
+<li>看点估值</li>
+<li>看点情绪</li>
+<li>再看看别人怎么理解</li>
+</ul>
+<p>那这个东西本质上就是把这些动作尽量揉到一个入口里。</p>
+<h3 id="2-拿它跑专项命令"><a href="#2-拿它跑专项命令" class="headerlink" title="2. 拿它跑专项命令"></a>2. 拿它跑专项命令</h3><p>这个也很实用。</p>
+<p>因为很多时候你不是想来一份总报告，你只是想单看某一块。</p>
+<p>比如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/stock-deep-analyzer:dcf 600519</span><br><span class="line">/stock-deep-analyzer:quick-scan 002217</span><br><span class="line">/stock-deep-analyzer:scan-trap 002217</span><br><span class="line">/stock-deep-analyzer:earnings 002273</span><br><span class="line">/stock-deep-analyzer:catalysts 002273</span><br></pre></td></tr></table></figure>
+
+<p>这几个命令看一眼就知道分别是干嘛的：</p>
+<ul>
+<li><code>dcf</code>：看估值</li>
+<li><code>quick-scan</code>：先快扫一遍</li>
+<li><code>scan-trap</code>：先排雷</li>
+<li><code>earnings</code>：看财报</li>
+<li><code>catalysts</code>：看催化剂</li>
+</ul>
+<p>我个人其实挺喜欢这种设计。</p>
+<p>因为它说明这个项目不是只有一个“大而全入口”，而是真的考虑到了“平时我会怎么用它”。</p>
+<h3 id="3-拿它做可分享的结果"><a href="#3-拿它做可分享的结果" class="headerlink" title="3. 拿它做可分享的结果"></a>3. 拿它做可分享的结果</h3><p>这个也是我觉得它比很多工具更适合种草的地方。</p>
+<p>它不是只给你一个长报告，它还有这种分享卡：</p>
+<p><img src="/img/posts/uzi-share-card.png" alt="UZI-Skill 分享卡片示意"></p>
+<p>你别小看这种图。</p>
+<p>很多时候一个工具到底能不能被持续用下去，取决于它最后给你的东西，能不能：</p>
+<ul>
+<li>自己回看</li>
+<li>发给别人</li>
+<li>留着做后续参考</li>
+</ul>
+<p>这类“成品感”做出来之后，整个体验就会从“我试过一个命令”变成“我手里真的拿到一个成果”。</p>
+<h3 id="4-拿它塞进-Agent-工作流里"><a href="#4-拿它塞进-Agent-工作流里" class="headerlink" title="4. 拿它塞进 Agent 工作流里"></a>4. 拿它塞进 Agent 工作流里</h3><p>如果你平时就在用 <code>Codex</code>、<code>Claude Code</code>、<code>Cursor</code> 这类东西，那 <code>UZI-Skill</code> 的吸引力会更大。</p>
+<p>因为它不是一个孤零零的网页产品，而是个 skill。</p>
+<p>也就是说，你可以把它理解成：</p>
+<p><strong>给你的 Agent 加一套股票研究能力。</strong></p>
+<p>这个脑补一出来，味道就对了。</p>
+<p>它不是让你换工作流，而是直接长在你原来的工作流上。</p>
+<h2 id="那到底怎么用"><a href="#那到底怎么用" class="headerlink" title="那到底怎么用"></a>那到底怎么用</h2><p>这部分我尽量写得最接地气。</p>
+<h3 id="如果你用-Claude-Code"><a href="#如果你用-Claude-Code" class="headerlink" title="如果你用 Claude Code"></a>如果你用 Claude Code</h3><p>README 里的方式是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/plugin marketplace add wbh604/UZI-Skill</span><br><span class="line">/plugin install stock-deep-analyzer@uzi-skill</span><br></pre></td></tr></table></figure>
+
+<p>装完之后，你最常用的大概率就是这几个：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/stock-deep-analyzer:analyze-stock 贵州茅台</span><br><span class="line">/stock-deep-analyzer:quick-scan 002217</span><br><span class="line">/stock-deep-analyzer:scan-trap 002217</span><br><span class="line">/stock-deep-analyzer:dcf 600519</span><br></pre></td></tr></table></figure>
+
+<h3 id="如果你用-Codex"><a href="#如果你用-Codex" class="headerlink" title="如果你用 Codex"></a>如果你用 Codex</h3><p>最简单的做法，其实就是直接让 Codex 按仓库说明去装：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请按照 https://raw.githubusercontent.com/wbh604/UZI-Skill/main/.codex/INSTALL.md 的指引安装 UZI-Skill，然后帮我深度分析 贵州茅台。</span><br></pre></td></tr></table></figure>
+
+<p>这种 skill 最省脑子的用法，本来就不是你自己一行行研究怎么配，而是直接让 Agent 干。</p>
+<h3 id="如果你想直接用命令行"><a href="#如果你想直接用命令行" class="headerlink" title="如果你想直接用命令行"></a>如果你想直接用命令行</h3><p>那也可以。</p>
+<p>仓库给的公开方式是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/wbh604/UZI-Skill.git</span><br><span class="line"><span class="built_in">cd</span> UZI-Skill</span><br><span class="line">pip install -r requirements.txt</span><br><span class="line">python run.py 贵州茅台</span><br></pre></td></tr></table></figure>
+
+<p>我自己本地也直接拉起过：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python run.py --<span class="built_in">help</span></span><br><span class="line">python run.py 600519 --no-browser</span><br></pre></td></tr></table></figure>
+
+<p>至少从入口上看，它不是那种“README 写得很漂亮，实际命令一跑就死”的项目。</p>
+<h2 id="如果你问我，最推荐怎么上手"><a href="#如果你问我，最推荐怎么上手" class="headerlink" title="如果你问我，最推荐怎么上手"></a>如果你问我，最推荐怎么上手</h2><p>我会建议你别一上来就冲最重的玩法。</p>
+<p>最省时间的姿势其实是：</p>
+<ol>
+<li>先跑 <code>quick-scan</code></li>
+<li>觉得有意思再跑 <code>analyze-stock</code></li>
+<li>真要看某个点，再去用 <code>dcf</code>、<code>earnings</code>、<code>catalysts</code></li>
+</ol>
+<p>这样最顺。</p>
+<p>因为你会先知道：</p>
+<ul>
+<li>这玩意是不是你的菜</li>
+<li>你喜不喜欢它的输出风格</li>
+<li>你有没有必要继续花更多时间</li>
+</ul>
+<h2 id="这东西适合谁"><a href="#这东西适合谁" class="headerlink" title="这东西适合谁"></a>这东西适合谁</h2><p>我觉得它特别适合下面这几类人：</p>
+<ol>
+<li>平时就在玩 <code>Codex</code>、<code>Claude Code</code>、<code>Cursor</code> 的人</li>
+<li>对股票研究流程感兴趣，但又不想自己拼整套流程的人</li>
+<li>喜欢“把 Agent 真正用到场景里”的人</li>
+</ol>
+<p>如果你完全不碰命令行、不碰插件、不碰仓库，那这玩意对你来说还是有门槛的。</p>
+<p>如果你想找的是“直接告诉我明天买什么”，那我也不建议你按这个方向去理解它。</p>
+<p>因为它更像： <strong>研究助手</strong></p>
+<p>而不是： <strong>买卖指令机</strong></p>
+<h2 id="最后还是得把边界讲清楚"><a href="#最后还是得把边界讲清楚" class="headerlink" title="最后还是得把边界讲清楚"></a>最后还是得把边界讲清楚</h2><p>虽然我这篇是在种草，但边界还是得留。</p>
+<p>项目作者自己在 README 里写得很明确：</p>
+<blockquote>
+<p>本工具由 AI 模型基于公开数据生成分析报告。所有评分、建议、模拟评语均为算法输出，不代表任何真实投资者的实际观点。不构成投资建议，投资有风险，入市需谨慎。</p>
+</blockquote>
+<p>所以我这里也保留同样的意思：</p>
+<blockquote>
+<p>本文仅为工具效果、用途与上手方式分享，不构成任何投资建议，相关内容仅供参考。</p>
+</blockquote>
+<p>如果你是把它当成一个“研究流程增强器”，那它挺值得试。</p>
+<p>如果你是把它当成一个“替你做决定的机器”，那就别这么期待。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/wbh604/UZI-Skill">UZI-Skill GitHub 仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.do/t/topic/1981105/3">Linux.do 原讨论帖</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/TouHouQing">TouHouQing</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tohoqing.com/2026/05/27/uzi-skill-ai-stock-research-assistant/">https://tohoqing.com/2026/05/27/uzi-skill-ai-stock-research-assistant/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://tohoqing.com" target="_blank">TouHouQing's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI/">AI</a><a class="post-meta__tags" href="/tags/Agent/">Agent</a><a class="post-meta__tags" href="/tags/Workflow/">Workflow</a><a class="post-meta__tags" href="/tags/%E6%8A%95%E8%B5%84%E7%A0%94%E7%A9%B6/">投资研究</a><a class="post-meta__tags" href="/tags/UZI-Skill/">UZI-Skill</a></div><div class="post-share"><div class="social-share" data-image="/img/posts/uzi-cover-2026.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>看在baka的份上,赏口饭吃</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/05/21/vibe-coding-five-schools-ai-programming-methodology-2026/" title="AI编程的五大流派，你属于哪一派？"><img class="cover" src="/img/posts/vibe-coding-five-schools-2026-chart.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">AI编程的五大流派，你属于哪一派？</div></div><div class="info-2"><div class="info-item-1">当大家都在讨论自己属于哪一派时，真正的行业分水岭已经变成了方法论之争。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/05/21/vibe-coding-five-schools-ai-programming-methodology-2026/" title="AI编程的五大流派，你属于哪一派？"><img class="cover" src="/img/posts/vibe-coding-five-schools-2026-chart.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-05-21</div><div class="info-item-2">AI编程的五大流派，你属于哪一派？</div></div><div class="info-2"><div class="info-item-1">当大家都在讨论自己属于哪一派时，真正的行业分水岭已经变成了方法论之争。</div></div></div></a><a class="pagination-related" href="/2026/04/10/vibeskills-ai-operating-system-guide/" title="VibeSkills：一个让你解放大脑，端到端的Skills路由器"><img class="cover" src="/img/posts/vibeskills-ai-os-cover.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-04-10</div><div class="info-item-2">VibeSkills：一个让你解放大脑，端到端的Skills路由器</div></div><div class="info-2"><div class="info-item-1">一篇面向工程实践的 VibeSkills 介绍，覆盖项目价值、痛点解决、同类对比、上手路径与使用建议。</div></div></div></a><a class="pagination-related" href="/2026/03/31/claude-code-architecture-study/" title="Claude Code 架构学习：从启动入口、查询引擎到工具链与远程桥接"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-31</div><div class="info-item-2">Claude Code 架构学习：从启动入口、查询引擎到工具链与远程桥接</div></div><div class="info-2"><div class="info-item-1">从 CLI 入口到 QueryEngine，再到权限、Bridge、UI 和技能体系，一次看懂 Claude Code 为什么不是“带几个工具的聊天壳”。</div></div></div></a><a class="pagination-related" href="/2026/03/18/alicization-open-source-digital-lifeform/" title="我花七天时间打造了一个数字生命：Alicization"><img class="cover" src="/img/posts/alicization-open-graph.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-18</div><div class="info-item-2">我花七天时间打造了一个数字生命：Alicization</div></div><div class="info-2"><div class="info-item-1">基于 AIRI 二次开发，Alicization 正在把“只在对话框里存在的 AI”推进成“能在设备里长期生活的数字生命”。</div></div></div></a><a class="pagination-related" href="/2026/03/16/ai-agent-personality-emotion-autonomy-architecture/" title="如何让 AI 智能体拥有“人格、情感与自主性”：后端架构深度剖析"><img class="cover" src="/img/posts/ai-agent-cover-architecture.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-16</div><div class="info-item-2">如何让 AI 智能体拥有“人格、情感与自主性”：后端架构深度剖析</div></div><div class="info-2"><div class="info-item-1">从人格模块、分层记忆、情绪状态机、事件驱动到多智能体协作，系统拆解让 AI Agent 更像“数字实体”的后端架构设计。</div></div></div></a><a class="pagination-related" href="/2026/03/25/ai-coding-tools-review-2026/" title="AI编程工具深度评测:10款主流产品全方位对比 | 编程效率 | 开发体验 | 价格分析"><img class="cover" src="/img/posts/ai-coding-tools-review-2026-cover.svg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-03-25</div><div class="info-item-2">AI编程工具深度评测:10款主流产品全方位对比 | 编程效率 | 开发体验 | 价格分析</div></div><div class="info-2"><div class="info-item-1">一篇基于真实使用体验的 AI 编程工具盘点，按顶尖梯队、新手友好型和特色工具做主观整理。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/logo.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">TouHouQing</div><div class="author-info-description">此生无悔入东方，来世愿生幻想乡</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/touhouqing"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/touhouqing" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:qinghaoyang@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://qm.qq.com/q/uppHba3OJG" target="_blank" title="QQ"><i class="fab fa-qq" style="color: #12B7F5;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客，我是一名独立开发者，热衷于研究各种各样的IT技术，如果你也是IT爱好者，可以和我一起交流讨论<br>
+微信：tohoqing<br>
+QQ：896985966<br>
+技术交流群：901872448<br>
+千人游戏开黑群：434692812
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%85%88%E6%8A%8A%E6%88%91%E7%82%B8%E5%88%B0%E7%9A%84%EF%BC%8C%E5%B0%B1%E6%98%AF%E5%AE%83%E6%9C%80%E5%90%8E%E7%BB%99%E4%BD%A0%E7%9A%84%E6%95%88%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">最先把我炸到的，就是它最后给你的效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E8%AE%A9%E6%88%91%E4%B8%8A%E5%A4%B4%E7%9A%84%E7%82%B9%EF%BC%8C%E6%98%AF%E5%AE%83%E9%82%A3%E4%B8%AA%E8%AF%84%E5%AE%A1%E5%9B%A2%E6%9C%BA%E5%88%B6"><span class="toc-number">2.</span> <span class="toc-text">第二个让我上头的点，是它那个评审团机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%83%E4%B8%8D%E6%98%AF%E5%8F%AA%E6%9C%89%E8%8A%B1%E6%B4%BB%EF%BC%8C%E5%BE%80%E4%B8%8B%E7%BF%BB%E4%B9%9F%E7%9C%9F%E6%9C%89%E5%86%85%E5%AE%B9"><span class="toc-number">3.</span> <span class="toc-text">它不是只有花活，往下翻也真有内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E5%AE%83%E5%88%B0%E5%BA%95%E8%83%BD%E6%8B%BF%E6%9D%A5%E5%B9%B2%E5%98%9B"><span class="toc-number">4.</span> <span class="toc-text">那它到底能拿来干嘛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8B%BF%E5%AE%83%E8%B7%91%E5%AE%8C%E6%95%B4%E4%B8%AA%E8%82%A1%E5%88%86%E6%9E%90"><span class="toc-number">4.1.</span> <span class="toc-text">1. 拿它跑完整个股分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8B%BF%E5%AE%83%E8%B7%91%E4%B8%93%E9%A1%B9%E5%91%BD%E4%BB%A4"><span class="toc-number">4.2.</span> <span class="toc-text">2. 拿它跑专项命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8B%BF%E5%AE%83%E5%81%9A%E5%8F%AF%E5%88%86%E4%BA%AB%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">4.3.</span> <span class="toc-text">3. 拿它做可分享的结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%8B%BF%E5%AE%83%E5%A1%9E%E8%BF%9B-Agent-%E5%B7%A5%E4%BD%9C%E6%B5%81%E9%87%8C"><span class="toc-number">4.4.</span> <span class="toc-text">4. 拿它塞进 Agent 工作流里</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E5%88%B0%E5%BA%95%E6%80%8E%E4%B9%88%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">那到底怎么用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%94%A8-Claude-Code"><span class="toc-number">5.1.</span> <span class="toc-text">如果你用 Claude Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%94%A8-Codex"><span class="toc-number">5.2.</span> <span class="toc-text">如果你用 Codex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E7%9B%B4%E6%8E%A5%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-number">5.3.</span> <span class="toc-text">如果你想直接用命令行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E4%BD%A0%E9%97%AE%E6%88%91%EF%BC%8C%E6%9C%80%E6%8E%A8%E8%8D%90%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B"><span class="toc-number">6.</span> <span class="toc-text">如果你问我，最推荐怎么上手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E4%B8%9C%E8%A5%BF%E9%80%82%E5%90%88%E8%B0%81"><span class="toc-number">7.</span> <span class="toc-text">这东西适合谁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%BF%98%E6%98%AF%E5%BE%97%E6%8A%8A%E8%BE%B9%E7%95%8C%E8%AE%B2%E6%B8%85%E6%A5%9A"><span class="toc-number">8.</span> <span class="toc-text">最后还是得把边界讲清楚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">9.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/05/27/uzi-skill-ai-stock-research-assistant/" title="最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人"><img src="/img/posts/uzi-cover-2026.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人"/></a><div class="content"><a class="title" href="/2026/05/27/uzi-skill-ai-stock-research-assistant/" title="最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人">最近挖到一个很猛的 AI 炒股 Skill，想安利给所有玩 Agent 的人</a><time datetime="2026-05-27T04:00:00.000Z" title="发表于 2026-05-27 12:00:00">2026-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/21/vibe-coding-five-schools-ai-programming-methodology-2026/" title="AI编程的五大流派，你属于哪一派？"><img src="/img/posts/vibe-coding-five-schools-2026-chart.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI编程的五大流派，你属于哪一派？"/></a><div class="content"><a class="title" href="/2026/05/21/vibe-coding-five-schools-ai-programming-methodology-2026/" title="AI编程的五大流派，你属于哪一派？">AI编程的五大流派，你属于哪一派？</a><time datetime="2026-05-21T14:05:00.000Z" title="发表于 2026-05-21 22:05:00">2026-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/17/opc-super-individual-side-project-thinking-2026/" title="不做全职OPC后，我对一人公司与超级个体的再思考"><img src="/img/posts/opc-super-individual-side-project-thinking-2026-cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="不做全职OPC后，我对一人公司与超级个体的再思考"/></a><div class="content"><a class="title" href="/2026/05/17/opc-super-individual-side-project-thinking-2026/" title="不做全职OPC后，我对一人公司与超级个体的再思考">不做全职OPC后，我对一人公司与超级个体的再思考</a><time datetime="2026-05-17T10:00:00.000Z" title="发表于 2026-05-17 18:00:00">2026-05-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/05/17/ai-relay-station-selection-guide/" title="AI中转站怎么选：5个硬指标避开野鸡平台与低价陷阱"><img src="/img/posts/ai-relay-station-selection-cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI中转站怎么选：5个硬指标避开野鸡平台与低价陷阱"/></a><div class="content"><a class="title" href="/2026/05/17/ai-relay-station-selection-guide/" title="AI中转站怎么选：5个硬指标避开野鸡平台与低价陷阱">AI中转站怎么选：5个硬指标避开野鸡平台与低价陷阱</a><time datetime="2026-05-17T09:20:00.000Z" title="发表于 2026-05-17 17:20:00">2026-05-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/10/vibeskills-ai-operating-system-guide/" title="VibeSkills：一个让你解放大脑，端到端的Skills路由器"><img src="/img/posts/vibeskills-ai-os-cover.svg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VibeSkills：一个让你解放大脑，端到端的Skills路由器"/></a><div class="content"><a class="title" href="/2026/04/10/vibeskills-ai-operating-system-guide/" title="VibeSkills：一个让你解放大脑，端到端的Skills路由器">VibeSkills：一个让你解放大脑，端到端的Skills路由器</a><time datetime="2026-04-10T11:30:00.000Z" title="发表于 2026-04-10 19:30:00">2026-04-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/foot.jpg);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By TouHouQing</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text">该网站由东方青制作</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天" style="display:none"><i class="fas fa-message"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo1-delta.vercel.app/',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo1-delta.vercel.app/',
+      region: 'ap-shanghai',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    GLOBAL_CONFIG_SITE.pageType === 'post' && getCount()
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><div class="aplayer no-destroy" data-id="7732249926" data-server="tencent" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="true" data-mutex="true" ></div><script src="/js/about-contrib.js?v=20260323-4" defer></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script>(() => {
+  btf.getScript('//code.tidio.co/gr7kfomrk3fkamhtgrq1tneptjq1edov.js').then(() => {
+    const isChatBtn = true
+    const isChatHideShow = false
+
+    if (isChatBtn) {
+      let isShow = false
+      const close = () => {
+        window.tidioChatApi.hide()
+        isShow = false
+      }
+      
+      const open = () => {
+        window.tidioChatApi.open()
+        window.tidioChatApi.show()
+        isShow = true
+      }
+
+      const onTidioChatApiReady = () => {
+        window.tidioChatApi.hide()
+        window.tidioChatApi.on("close", close)
+      }
+      if (window.tidioChatApi) {
+        window.tidioChatApi.on("ready", onTidioChatApiReady)
+      } else {
+        document.addEventListener("tidioChat-ready", onTidioChatApiReady)
+      }
+
+      window.chatBtnFn = () => {
+        if (!window.tidioChatApi) return
+        isShow ? close() : open()
+      }
+
+      document.getElementById('chat-btn').style.display = 'block'
+
+    } else if (isChatHideShow) {
+      window.chatBtn = {
+        hide: () => window.tidioChatApi && window.tidioChatApi.hide(),
+        show: () => window.tidioChatApi && window.tidioChatApi.show()
+      }
+    }
+  })
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div id="algolia-search-input"><div class="ais-SearchBox"><form class="ais-SearchBox-form" action="" role="search" novalidate=""><input class="ais-SearchBox-input" type="search" placeholder="搜索文章" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search"/><button class="ais-SearchBox-submit" type="submit" title="Submit the search query" style="display:none;"><svg class="ais-SearchBox-submitIcon" width="10" height="10" viewBox="0 0 40 40" aria-hidden="true"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path></svg></button></form></div><hr/><div id="algolia-search-results"><div id="algolia-hits"><div id="algolia-hits-empty" style="display:none;"></div><div class="ais-Hits" style="display:none;"><ol class="ais-Hits-list"></ol></div></div><div class="ais-Pagination" id="algolia-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="algolia-info"><span class="ais-Stats-text"></span><a class="algolia-poweredBy" href="https://www.algolia.com/?utm_source=algoliasearch.js&amp;utm_medium=website&amp;utm_content=localhost&amp;utm_campaign=poweredby" target="_blank" aria-label="Search by Algolia" rel="noopener noreferrer"><svg class="ais-PoweredBy-logo" height="1.2em" viewBox="0 0 572 64" style="width: auto;"><path fill="#36395A" d="M16 48.3c-3.4 0-6.3-.6-8.7-1.7A12.4 12.4 0 0 1 1.9 42C.6 40 0 38 0 35.4h6.5a6.7 6.7 0 0 0 3.9 6c1.4.7 3.3 1.1 5.6 1.1 2.2 0 4-.3 5.4-1a7 7 0 0 0 3-2.4 6 6 0 0 0 1-3.4c0-1.5-.6-2.8-1.9-3.7-1.3-1-3.3-1.6-5.9-1.8l-4-.4c-3.7-.3-6.6-1.4-8.8-3.4a10 10 0 0 1-3.3-7.9c0-2.4.6-4.6 1.8-6.4a12 12 0 0 1 5-4.3c2.2-1 4.7-1.6 7.5-1.6s5.5.5 7.6 1.6a12 12 0 0 1 5 4.4c1.2 1.8 1.8 4 1.8 6.7h-6.5a6.4 6.4 0 0 0-3.5-5.9c-1-.6-2.6-1-4.4-1s-3.2.3-4.4 1c-1.1.6-2 1.4-2.6 2.4-.5 1-.8 2-.8 3.1a5 5 0 0 0 1.5 3.6c1 1 2.6 1.7 4.7 1.9l4 .3c2.8.2 5.2.8 7.2 1.8 2.1 1 3.7 2.2 4.9 3.8a9.7 9.7 0 0 1 1.7 5.8c0 2.5-.7 4.7-2 6.6a13 13 0 0 1-5.6 4.4c-2.4 1-5.2 1.6-8.4 1.6Zm35.6 0c-2.6 0-4.8-.4-6.7-1.3a13 13 0 0 1-4.7-3.5 17.1 17.1 0 0 1-3.6-10.4v-1c0-2 .3-3.8 1-5.6a13 13 0 0 1 7.3-8.3 15 15 0 0 1 6.3-1.4A13.2 13.2 0 0 1 64 24.3c1 2.2 1.6 4.6 1.6 7.2V34H39.4v-4.3h21.8l-1.8 2.2c0-2-.3-3.7-.9-5.1a7.3 7.3 0 0 0-2.7-3.4c-1.2-.7-2.7-1.1-4.6-1.1s-3.4.4-4.7 1.3a8 8 0 0 0-2.9 3.6c-.6 1.5-.9 3.3-.9 5.4 0 2 .3 3.7 1 5.3a7.9 7.9 0 0 0 2.8 3.7c1.3.8 3 1.3 5 1.3s3.8-.5 5.1-1.3c1.3-1 2.1-2 2.4-3.2h6a11.8 11.8 0 0 1-7 8.7 16 16 0 0 1-6.4 1.2ZM80 48c-2.2 0-4-.3-5.7-1a8.4 8.4 0 0 1-3.7-3.3 9.7 9.7 0 0 1-1.3-5.2c0-2 .5-3.8 1.5-5.2a9 9 0 0 1 4.3-3.1c1.8-.7 4-1 6.7-1H89v4.1h-7.5c-2 0-3.4.5-4.4 1.4-1 1-1.6 2.1-1.6 3.6s.5 2.7 1.6 3.6c1 1 2.5 1.4 4.4 1.4 1.1 0 2.2-.2 3.2-.7 1-.4 1.9-1 2.6-2 .6-1 1-2.4 1-4.2l1.7 2.1c-.2 2-.7 3.8-1.5 5.2a9 9 0 0 1-3.4 3.3 12 12 0 0 1-5.3 1Zm9.5-.7v-8.8h-1v-10c0-1.8-.5-3.2-1.4-4.1-1-1-2.4-1.4-4.2-1.4a142.9 142.9 0 0 0-10.2.4v-5.6a74.8 74.8 0 0 1 8.6-.4c3 0 5.5.4 7.5 1.2s3.4 2 4.4 3.6c1 1.7 1.4 4 1.4 6.7v18.4h-5Zm12.9 0V17.8h5v12.3h-.2c0-4.2 1-7.4 2.8-9.5a11 11 0 0 1 8.3-3.1h1v5.6h-2a9 9 0 0 0-6.3 2.2c-1.5 1.5-2.2 3.6-2.2 6.4v15.6h-6.4Zm34.4 1a15 15 0 0 1-6.6-1.3c-1.9-.9-3.4-2-4.7-3.5a15.5 15.5 0 0 1-2.7-5c-.6-1.7-1-3.6-1-5.4v-1c0-2 .4-3.8 1-5.6a15 15 0 0 1 2.8-4.9c1.3-1.5 2.8-2.6 4.6-3.5a16.4 16.4 0 0 1 13.3.2c2 1 3.5 2.3 4.8 4a12 12 0 0 1 2 6H144c-.2-1.6-1-3-2.2-4.1a7.5 7.5 0 0 0-5.2-1.7 8 8 0 0 0-4.7 1.3 8 8 0 0 0-2.8 3.6 13.8 13.8 0 0 0 0 10.3c.6 1.5 1.5 2.7 2.8 3.6s2.8 1.3 4.8 1.3c1.5 0 2.7-.2 3.8-.8a7 7 0 0 0 2.6-2c.7-1 1-2 1.2-3.2h6.2a11 11 0 0 1-2 6.2 15.1 15.1 0 0 1-11.8 5.5Zm19.7-1v-40h6.4V31h-1.3c0-3 .4-5.5 1.1-7.6a9.7 9.7 0 0 1 3.5-4.8A9.9 9.9 0 0 1 172 17h.3c3.5 0 6 1.1 7.9 3.5 1.7 2.3 2.6 5.7 2.6 10v16.8h-6.4V29.6c0-2.1-.6-3.8-1.8-5a6.4 6.4 0 0 0-4.8-1.8c-2 0-3.7.7-5 2a7.8 7.8 0 0 0-1.9 5.5v17h-6.4Zm63.8 1a12.2 12.2 0 0 1-10.9-6.2 19 19 0 0 1-1.8-7.3h1.4v12.5h-5.1v-40h6.4v19.8l-2 3.5c.2-3.1.8-5.7 1.9-7.7a11 11 0 0 1 4.4-4.5c1.8-1 3.9-1.5 6.1-1.5a13.4 13.4 0 0 1 12.8 9.1c.7 1.9 1 3.8 1 6v1c0 2.2-.3 4.1-1 6a13.6 13.6 0 0 1-13.2 9.4Zm-1.2-5.5a8.4 8.4 0 0 0 7.9-5c.7-1.5 1.1-3.3 1.1-5.3s-.4-3.8-1.1-5.3a8.7 8.7 0 0 0-3.2-3.6 9.6 9.6 0 0 0-9.2-.2 8.5 8.5 0 0 0-3.3 3.2c-.8 1.4-1.3 3-1.3 5v2.3a9 9 0 0 0 1.3 4.8 9 9 0 0 0 3.4 3c1.4.7 2.8 1 4.4 1Zm27.3 3.9-10-28.9h6.5l9.5 28.9h-6Zm-7.5 12.2v-5.7h4.9c1 0 2-.1 2.9-.4a4 4 0 0 0 2-1.4c.4-.7.9-1.6 1.2-2.7l8.6-30.9h6.2l-9.3 32.4a14 14 0 0 1-2.5 5 8.9 8.9 0 0 1-4 2.8c-1.5.6-3.4.9-5.6.9h-4.4Zm9-12.2v-5.2h6.4v5.2H248Z"></path><path fill="#003DFF" d="M534.4 9.1H528a.8.8 0 0 1-.7-.7V1.8c0-.4.2-.7.6-.8l6.5-1c.4 0 .8.2.9.6v7.8c0 .4-.4.7-.8.7zM428 35.2V.8c0-.5-.3-.8-.7-.8h-.2l-6.4 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.5 0 .8-.4.8-.8V43c0-.4-.3-.7-.6-.8-4.5-.5-4.5-6-4.5-7zm106.5-21.8H528c-.4 0-.7.4-.7.8v34c0 .4.3.8.7.8h6.5c.4 0 .8-.4.8-.8v-34c0-.5-.4-.8-.8-.8zm-17.7 21.8V.8c0-.5-.3-.8-.8-.8l-6.5 1c-.4 0-.7.4-.7.8v35c0 1.6 0 11.8 12.3 12.2.4 0 .8-.4.8-.8V43c0-.4-.3-.7-.7-.8-4.4-.5-4.4-6-4.4-7zm-22.2-20.6a16.5 16.5 0 0 1 8.6 9.3c.8 2.2 1.3 4.8 1.3 7.5a19.4 19.4 0 0 1-4.6 12.6 14.8 14.8 0 0 1-5.2 3.6c-2 .9-5.2 1.4-6.8 1.4a21 21 0 0 1-6.7-1.4 15.4 15.4 0 0 1-8.6-9.3 21.3 21.3 0 0 1 0-14.4 15.2 15.2 0 0 1 8.6-9.3c2-.8 4.3-1.2 6.7-1.2s4.6.4 6.7 1.2zm-6.7 27.6c2.7 0 4.7-1 6.2-3s2.2-4.3 2.2-7.8-.7-6.3-2.2-8.3-3.5-3-6.2-3-4.7 1-6.1 3c-1.5 2-2.2 4.8-2.2 8.3s.7 5.8 2.2 7.8 3.5 3 6.2 3zm-88.8-28.8c-6.2 0-11.7 3.3-14.8 8.2a18.6 18.6 0 0 0 4.8 25.2c1.8 1.2 4 1.8 6.2 1.7s.1 0 .1 0h.9c4.2-.7 8-4 9.1-8.1v7.4c0 .4.3.7.8.7h6.4a.7.7 0 0 0 .7-.7V14.2c0-.5-.3-.8-.7-.8h-13.5zm6.3 26.5a9.8 9.8 0 0 1-5.7 2h-.5a10 10 0 0 1-9.2-14c1.4-3.7 5-6.3 9-6.3h6.4v18.3zm152.3-26.5h13.5c.5 0 .8.3.8.7v33.7c0 .4-.3.7-.8.7h-6.4a.7.7 0 0 1-.8-.7v-7.4c-1.2 4-4.8 7.4-9 8h-.1a4.2 4.2 0 0 1-.5.1h-.9a10.3 10.3 0 0 1-7-2.6c-4-3.3-6.5-8.4-6.5-14.2 0-3.7 1-7.2 3-10 3-5 8.5-8.3 14.7-8.3zm.6 28.4c2.2-.1 4.2-.6 5.7-2V21.7h-6.3a9.8 9.8 0 0 0-9 6.4 10.2 10.2 0 0 0 9.1 13.9h.5zM452.8 13.4c-6.2 0-11.7 3.3-14.8 8.2a18.5 18.5 0 0 0 3.6 24.3 10.4 10.4 0 0 0 13 .6c2.2-1.5 3.8-3.7 4.5-6.1v7.8c0 2.8-.8 5-2.2 6.3-1.5 1.5-4 2.2-7.5 2.2l-6-.3c-.3 0-.7.2-.8.5l-1.6 5.5c-.1.4.1.8.5 1h.1c2.8.4 5.5.6 7 .6 6.3 0 11-1.4 14-4.1 2.7-2.5 4.2-6.3 4.5-11.4V14.2c0-.5-.4-.8-.8-.8h-13.5zm6.3 8.2v18.3a9.6 9.6 0 0 1-5.6 2h-1a10.3 10.3 0 0 1-8.8-14c1.4-3.7 5-6.3 9-6.3h6.4zM291 31.5A32 32 0 0 1 322.8 0h30.8c.6 0 1.2.5 1.2 1.2v61.5c0 1.1-1.3 1.7-2.2 1l-19.2-17a18 18 0 0 1-11 3.4 18.1 18.1 0 1 1 18.2-14.8c-.1.4-.5.7-.9.6-.1 0-.3 0-.4-.2l-3.8-3.4c-.4-.3-.6-.8-.7-1.4a12 12 0 1 0-2.4 8.3c.4-.4 1-.5 1.6-.2l14.7 13.1v-46H323a26 26 0 1 0 10 49.7c.8-.4 1.6-.2 2.3.3l3 2.7c.3.2.3.7 0 1l-.2.2a32 32 0 0 1-47.2-28.6z"></path></svg></a></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/lite/builds/browser.umd.min.js"></script><script src="/js/search/algolia.js"></script></div></div></body></html>
